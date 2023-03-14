@@ -6,4 +6,5 @@ COPY . .
 RUN npm run build
 
 FROM nginx
+COPY --from=build /code/default.conf.template /etc/nginx/templates/*.template
 COPY --from=build /code/dist /usr/share/nginx/html
