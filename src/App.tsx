@@ -33,14 +33,14 @@ const router = createBrowserRouter([
   },
 ]);
 
-type Account = {
+type AccountType = {
   email: string;
 } | null;
 
 const AccountContext = createContext<{
-  account: Account;
+  account: AccountType;
   signIn: () => void;
-  signOut: () => void | null;
+  signOut: () => void;
 }>({
   account: null,
   signIn: () => {},
@@ -48,7 +48,7 @@ const AccountContext = createContext<{
 });
 
 export default function App() {
-  const [account, setAccount] = useState<Account>(null);
+  const [account, setAccount] = useState<AccountType>(null);
 
   function signIn() {
     setAccount({
