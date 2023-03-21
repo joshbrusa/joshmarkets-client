@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, useEffect, createContext } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./routes/Root";
 import ErrorPage from "./routes/ErrorPage";
@@ -49,6 +49,8 @@ const AccountContext = createContext<{
 
 export default function App() {
   const [account, setAccount] = useState<AccountType>(null);
+
+  useEffect(() => {}, []);
 
   function signIn() {
     setAccount({

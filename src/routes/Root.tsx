@@ -9,8 +9,8 @@ import {
 
 export default function Root() {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-6">
-      <header className="col-span-1 sm:col-span-6 flex justify-between items-center m-1 p-2 bg-neutral-300 rounded-lg">
+    <>
+      <header className="sticky top-0 p-2 flex justify-between items-center bg-neutral-300">
         <h1 className="font-bold text-2xl">Josh Markets</h1>
         <div className="flex">
           <a
@@ -21,27 +21,29 @@ export default function Root() {
           </a>
         </div>
       </header>
-      <nav className="m-1 p-2 bg-neutral-300 rounded-lg">
-        <a href="/" className="flex items-center">
-          <HomeIcon className="h-6 w-6 m-2" />
-          <p>Home</p>
-        </a>
-        <a href="/markets" className="flex items-center">
-          <ChartBarIcon className="h-6 w-6 m-2" />
-          <p>Markets</p>
-        </a>
-        <a href="/friends" className="flex items-center">
-          <UserCircleIcon className="h-6 w-6 m-2" />
-          <p>Friends</p>
-        </a>
-        <a href="/account" className="flex items-center">
-          <Cog6ToothIcon className="h-6 w-6 m-2" />
-          <p>Account</p>
-        </a>
-      </nav>
-      <main className="col-span-1 sm:col-span-4 m-1 p-2">
-        <Outlet />
-      </main>
-    </div>
+      <div className="flex">
+        <nav className="p-2 w-40 fixed h-screen bg-neutral-300">
+          <a href="/" className="p-2 flex items-center">
+            <HomeIcon className="h-6 w-6" />
+            <p className="ml-2">Home</p>
+          </a>
+          <a href="/markets" className="p-2 flex items-center">
+            <ChartBarIcon className="h-6 w-6" />
+            <p className="ml-2">Markets</p>
+          </a>
+          <a href="/friends" className="p-2 flex items-center">
+            <UserCircleIcon className="h-6 w-6" />
+            <p className="ml-2">Friends</p>
+          </a>
+          <a href="/account" className="p-2 flex items-center">
+            <Cog6ToothIcon className="h-6 w-6" />
+            <p className="ml-2">Account</p>
+          </a>
+        </nav>
+        <main className="ml-40 p-2">
+          <Outlet />
+        </main>
+      </div>
+    </>
   );
 }
